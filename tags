@@ -1,0 +1,69 @@
+AUTOLOAD	Regex.pm	/^sub AUTOLOAD/
+DESTROY	Regex.pm	/^sub DESTROY/
+FH	Regex.pm	/^		\$FH = /
+FH	Regex.pm	/^		\$FH = /
+File	Regex.pm	/^File:/
+File::Regex::AUTOLOAD	Regex.pm	/^sub AUTOLOAD/
+File::Regex::DESTROY	Regex.pm	/^sub DESTROY/
+File::Regex::FH	Regex.pm	/^		\$FH = /
+File::Regex::VERSION	Regex.pm	/^\$VERSION = /
+File::Regex::_check_access	Regex.pm	/^sub _check_access/
+File::Regex::_close	Regex.pm	/^sub _close/
+File::Regex::_debug	Regex.pm	/^sub _debug/
+File::Regex::_enter	Regex.pm	/^sub _enter/
+File::Regex::_err	Regex.pm	/^sub _err/
+File::Regex::_error	Regex.pm	/^sub _error/
+File::Regex::_fh	Regex.pm	/^sub _fh/
+File::Regex::_init	Regex.pm	/^sub _init/
+File::Regex::_leave	Regex.pm	/^sub _leave/
+File::Regex::_lock	Regex.pm	/^sub _lock/
+File::Regex::_mapfile	Regex.pm	/^sub _mapfile/
+File::Regex::_mapperms	Regex.pm	/^sub _mapperms/
+File::Regex::_mapperrs	Regex.pm	/^sub _mapperrs/
+File::Regex::_open	Regex.pm	/^sub _open/
+File::Regex::_read	Regex.pm	/^sub _read/
+File::Regex::_unlock	Regex.pm	/^sub _unlock/
+File::Regex::_var	Regex.pm	/^sub _var/
+File::Regex::_writable	Regex.pm	/^sub _writable/
+File::Regex::_write	Regex.pm	/^sub _write/
+File::Regex::append	Regex.pm	/^sub append/
+File::Regex::do	Regex.pm	/^sub do/
+File::Regex::dummy	Regex.pm	/^sub dummy/
+File::Regex::insert	Regex.pm	/^sub insert/
+File::Regex::new	Regex.pm	/^sub new/
+File::Regex::prepend	Regex.pm	/^sub prepend/
+File::Regex::read	Regex.pm	/^sub read/
+File::Regex::replace	Regex.pm	/^sub replace/
+File::Regex::search	Regex.pm	/^sub search/
+File::Regex::write	Regex.pm	/^sub write/
+VERSION	Regex.pm	/^\$VERSION = /
+VERSION	Regex.pm	/^\$VERSION = /
+_check_access	Regex.pm	/^sub _check_access/
+_close	Regex.pm	/^sub _close/
+_debug	Regex.pm	/^sub _debug/
+_enter	Regex.pm	/^sub _enter/
+_err	Regex.pm	/^sub _err/
+_error	Regex.pm	/^sub _error/
+_fh	Regex.pm	/^sub _fh/
+_init	Regex.pm	/^sub _init/
+_leave	Regex.pm	/^sub _leave/
+_lock	Regex.pm	/^sub _lock/
+_mapfile	Regex.pm	/^sub _mapfile/
+_mapperms	Regex.pm	/^sub _mapperms/
+_mapperrs	Regex.pm	/^sub _mapperrs/
+_open	Regex.pm	/^sub _open/
+_read	Regex.pm	/^sub _read/
+_unlock	Regex.pm	/^sub _unlock/
+_var	Regex.pm	/^sub _var/
+_writable	Regex.pm	/^sub _writable/
+_write	Regex.pm	/^sub _write/
+append	Regex.pm	/^sub append/
+do	Regex.pm	/^sub do/
+dummy	Regex.pm	/^sub dummy/
+insert	Regex.pm	/^sub insert/
+new	Regex.pm	/^sub new/
+prepend	Regex.pm	/^sub prepend/
+read	Regex.pm	/^sub read/
+replace	Regex.pm	/^sub replace/
+search	Regex.pm	/^sub search/
+write	Regex.pm	/^sub write/

@@ -1,0 +1,669 @@
+.rn '' }`
+''' $RCSfile$$Revision$$Date$
+'''
+''' $Log$
+'''
+.de Sh
+.br
+.if t .Sp
+.ne 5
+.PP
+\fB\\$1\fR
+.PP
+..
+.de Sp
+.if t .sp .5v
+.if n .sp
+..
+.de Ip
+.br
+.ie \\n(.$>=3 .ne \\$3
+.el .ne 3
+.IP "\\$1" \\$2
+..
+.de Vb
+.ft CW
+.nf
+.ne \\$1
+..
+.de Ve
+.ft R
+
+.fi
+..
+'''
+'''
+'''     Set up \*(-- to give an unbreakable dash;
+'''     string Tr holds user defined translation string.
+'''     Bell System Logo is used as a dummy character.
+'''
+.tr \(*W-|\(bv\*(Tr
+.ie n \{\
+.ds -- \(*W-
+.ds PI pi
+.if (\n(.H=4u)&(1m=24u) .ds -- \(*W\h'-12u'\(*W\h'-12u'-\" diablo 10 pitch
+.if (\n(.H=4u)&(1m=20u) .ds -- \(*W\h'-12u'\(*W\h'-8u'-\" diablo 12 pitch
+.ds L" ""
+.ds R" ""
+'''   \*(M", \*(S", \*(N" and \*(T" are the equivalent of
+'''   \*(L" and \*(R", except that they are used on ".xx" lines,
+'''   such as .IP and .SH, which do another additional levels of
+'''   double-quote interpretation
+.ds M" """
+.ds S" """
+.ds N" """""
+.ds T" """""
+.ds L' '
+.ds R' '
+.ds M' '
+.ds S' '
+.ds N' '
+.ds T' '
+'br\}
+.el\{\
+.ds -- \(em\|
+.tr \*(Tr
+.ds L" ``
+.ds R" ''
+.ds M" ``
+.ds S" ''
+.ds N" ``
+.ds T" ''
+.ds L' `
+.ds R' '
+.ds M' `
+.ds S' '
+.ds N' `
+.ds T' '
+.ds PI \(*p
+'br\}
+.\"	If the F register is turned on, we'll generate
+.\"	index entries out stderr for the following things:
+.\"		TH	Title 
+.\"		SH	Header
+.\"		Sh	Subsection 
+.\"		Ip	Item
+.\"		X<>	Xref  (embedded
+.\"	Of course, you have to process the output yourself
+.\"	in some meaninful fashion.
+.if \nF \{
+.de IX
+.tm Index:\\$1\t\\n%\t"\\$2"
+..
+.nr % 0
+.rr F
+.\}
+.TH Content 3 "perl 5.005, patch 03" "6/Nov/2001" "User Contributed Perl Documentation"
+.UC
+.if n .hy 0
+.if n .na
+.ds C+ C\v'-.1v'\h'-1p'\s-2+\h'-1p'+\s0\v'.1v'\h'-1p'
+.de CQ          \" put $1 in typewriter font
+.ft CW
+'if n "\c
+'if t \\&\\$1\c
+'if n \\&\\$1\c
+'if n \&"
+\\&\\$2 \\$3 \\$4 \\$5 \\$6 \\$7
+'.ft R
+..
+.\" @(#)ms.acc 1.5 88/02/08 SMI; from UCB 4.2
+.	\" AM - accent mark definitions
+.bd B 3
+.	\" fudge factors for nroff and troff
+.if n \{\
+.	ds #H 0
+.	ds #V .8m
+.	ds #F .3m
+.	ds #[ \f1
+.	ds #] \fP
+.\}
+.if t \{\
+.	ds #H ((1u-(\\\\n(.fu%2u))*.13m)
+.	ds #V .6m
+.	ds #F 0
+.	ds #[ \&
+.	ds #] \&
+.\}
+.	\" simple accents for nroff and troff
+.if n \{\
+.	ds ' \&
+.	ds ` \&
+.	ds ^ \&
+.	ds , \&
+.	ds ~ ~
+.	ds ? ?
+.	ds ! !
+.	ds /
+.	ds q
+.\}
+.if t \{\
+.	ds ' \\k:\h'-(\\n(.wu*8/10-\*(#H)'\'\h"|\\n:u"
+.	ds ` \\k:\h'-(\\n(.wu*8/10-\*(#H)'\`\h'|\\n:u'
+.	ds ^ \\k:\h'-(\\n(.wu*10/11-\*(#H)'^\h'|\\n:u'
+.	ds , \\k:\h'-(\\n(.wu*8/10)',\h'|\\n:u'
+.	ds ~ \\k:\h'-(\\n(.wu-\*(#H-.1m)'~\h'|\\n:u'
+.	ds ? \s-2c\h'-\w'c'u*7/10'\u\h'\*(#H'\zi\d\s+2\h'\w'c'u*8/10'
+.	ds ! \s-2\(or\s+2\h'-\w'\(or'u'\v'-.8m'.\v'.8m'
+.	ds / \\k:\h'-(\\n(.wu*8/10-\*(#H)'\z\(sl\h'|\\n:u'
+.	ds q o\h'-\w'o'u*8/10'\s-4\v'.4m'\z\(*i\v'-.4m'\s+4\h'\w'o'u*8/10'
+.\}
+.	\" troff and (daisy-wheel) nroff accents
+.ds : \\k:\h'-(\\n(.wu*8/10-\*(#H+.1m+\*(#F)'\v'-\*(#V'\z.\h'.2m+\*(#F'.\h'|\\n:u'\v'\*(#V'
+.ds 8 \h'\*(#H'\(*b\h'-\*(#H'
+.ds v \\k:\h'-(\\n(.wu*9/10-\*(#H)'\v'-\*(#V'\*(#[\s-4v\s0\v'\*(#V'\h'|\\n:u'\*(#]
+.ds _ \\k:\h'-(\\n(.wu*9/10-\*(#H+(\*(#F*2/3))'\v'-.4m'\z\(hy\v'.4m'\h'|\\n:u'
+.ds . \\k:\h'-(\\n(.wu*8/10)'\v'\*(#V*4/10'\z.\v'-\*(#V*4/10'\h'|\\n:u'
+.ds 3 \*(#[\v'.2m'\s-2\&3\s0\v'-.2m'\*(#]
+.ds o \\k:\h'-(\\n(.wu+\w'\(de'u-\*(#H)/2u'\v'-.3n'\*(#[\z\(de\v'.3n'\h'|\\n:u'\*(#]
+.ds d- \h'\*(#H'\(pd\h'-\w'~'u'\v'-.25m'\f2\(hy\fP\v'.25m'\h'-\*(#H'
+.ds D- D\\k:\h'-\w'D'u'\v'-.11m'\z\(hy\v'.11m'\h'|\\n:u'
+.ds th \*(#[\v'.3m'\s+1I\s-1\v'-.3m'\h'-(\w'I'u*2/3)'\s-1o\s+1\*(#]
+.ds Th \*(#[\s+2I\s-2\h'-\w'I'u*3/5'\v'-.3m'o\v'.3m'\*(#]
+.ds ae a\h'-(\w'a'u*4/10)'e
+.ds Ae A\h'-(\w'A'u*4/10)'E
+.ds oe o\h'-(\w'o'u*4/10)'e
+.ds Oe O\h'-(\w'O'u*4/10)'E
+.	\" corrections for vroff
+.if v .ds ~ \\k:\h'-(\\n(.wu*9/10-\*(#H)'\s-2\u~\d\s+2\h'|\\n:u'
+.if v .ds ^ \\k:\h'-(\\n(.wu*10/11-\*(#H)'\v'-.4m'^\v'.4m'\h'|\\n:u'
+.	\" for low resolution devices (crt and lpr)
+.if \n(.H>23 .if \n(.V>19 \
+\{\
+.	ds : e
+.	ds 8 ss
+.	ds v \h'-1'\o'\(aa\(ga'
+.	ds _ \h'-1'^
+.	ds . \h'-1'.
+.	ds 3 3
+.	ds o a
+.	ds d- d\h'-1'\(ga
+.	ds D- D\h'-1'\(hy
+.	ds th \o'bp'
+.	ds Th \o'LP'
+.	ds ae ae
+.	ds Ae AE
+.	ds oe oe
+.	ds Oe OE
+.\}
+.rm #[ #] #H #V #F C
+.SH "NAME"
+File::Content \- Regular expression interface to files
+.SH "DESCRIPTION"
+Wraps all the accessing of a file into a convenient set of calls for 
+reading and writing data, including a simple regex interface.
+.SH "SYNOPSIS"
+.PP
+.Vb 1
+\&        use File::Content;
+.Ve
+.Vb 1
+\&        my $o_reg = File::Content->new('/etc/passwd');
+.Ve
+.Vb 1
+\&        my @orig = $o_reg->read;
+.Ve
+.Vb 1
+\&        $o_reg->append("appended:entry:4:A second name::etc::sh\en");
+.Ve
+.Vb 1
+\&        $o_reg->replace('^(?:[^:]:){3}([^:]+):', 'replaced:entry:4:another name::etc::sh\en');
+.Ve
+.Vb 1
+\&        $o_reg->prepend("prepended:entry:4:A first name::etc::sh\en");
+.Ve
+.Vb 1
+\&        print 'new names: ' = $o_reg->search('(name.+):');
+.Ve
+See the \fIMETHODS\fR manpage and the \fIEXAMPLES\fR manpage.
+.SH "EXPLANATION"
+The idea is to standardise accessing of files for repetitive and straight forward tasks, and remove the repeated and therefore error prone file access I have seen in many sites, where varying, (with equivalently varying success), methods are used to achieve essentially the same result \- a simple search and replace and/or a regex match.  
+.PP
+Approaches to opening and working with files vary so much, where one person may wish to know if a file exists, another wishes to know whether the target is a file, or if it is readable, or writable and so on.  Sometimes, in production code even (horror), file's are opened without any checks of whether the open was succesful.  Then there's a loop through each line to find the first or many patterns to read and/or replace.  With a failure, normally the only message is \*(L'permission denied\*(R', is that read or write access, does the file even exist? etc.
+.PP
+This module attempts to provide a plain/generic interface to accessing a file's contents.  This will not suit every situation, but I have included some examples which will hopefully demonstrate that it may be used in situations where people would normally go through the same procedure for the umpteenth time to get at the same data.  
+.PP
+One last thing \- I'm sure this could be made much more efficient, and I'll be very interested to try and incorporate any suggestions to that effect.  Note though that the intention has been to create a simple moderately consistent interface, rather than a complicated one.  Sometimes it's better to roll your own, and sometimes you don't have to reinvent the wheel \- TMTOWTDI.
+.PP
+# ================================================================
+.SH "METHODS"
+.Ip "new" 4
+Create a new File::Content object (default read-write permissions).
+.Sp
+.Vb 1
+\&        my $o_rw = File::Content->new($filename);       # read-write
+.Ve
+.Vb 1
+\&        my $o_ro = File::Content->new($filename, 'ro');         # read-only
+.Ve
+Theoretically you can mix and match your read and writes so long as you don't open read-only. 
+.Sp
+.Vb 1
+\&        my $o_reg    = File::Content->new($file);
+.Ve
+.Vb 1
+\&        my @partial  = $o_reg->search($pattern);
+.Ve
+.Vb 1
+\&        my $i_cnt    = $o_reg->replace($search, $replace);
+.Ve
+Note that if you open a file read-only and then attempt to write to it, that 
+will be regarded as an error, even if you change the permissions in the meantime.
+.Ip "do" 4
+Simple wrapper for method calls, returning the object, so that you can chain them, prints the results so you can catch them on \s-1STDOUT\s0.
+.Sp
+.Vb 1
+\&        my $o_reg = $o_reg->do('insert', @insertargs)->do('append', @appendargs)->do('read');
+.Ve
+.Ip "read" 4
+Read all data from file
+.Sp
+.Vb 1
+\&        my @data = $o_reg->read;
+.Ve
+.Ip "write" 4
+Write data to file
+.Sp
+.Vb 1
+\&        my @written = $o_reg->write;
+.Ve
+.Ip "prepend" 4
+Prepend to file
+.Sp
+.Vb 1
+\&        my @prepended = $o_reg->prepend(\e@lines);
+.Ve
+.Ip "insert" 4
+Insert data at line number, starting from \*(L'0\*(R'
+.Sp
+.Vb 1
+\&        my @inserted = $o_reg->insert($i_lineno, \e@lines);
+.Ve
+.Ip "append" 4
+Append to file
+.Sp
+.Vb 1
+\&        my @appended = $o_reg->append(\e@lines);
+.Ve
+.Ip "search" 4
+Retrieve data out of a file, simple list of all matches found are returned.
+.Sp
+Note \- you must use capturing parentheses for this to work!
+.Sp
+my \f(CW@addrs\fR = \f(CW$o_reg\fR\->\fIsearch\fR\|('/^(.*\e@.*)$/');
+.Sp
+my \f(CW@names\fR = \f(CW$o_reg\fR\->\fIsearch\fR\|('/^(?:[^:]:){4}([^:]+):/');
+.Ip "replace " 4
+Replace data in a \*(L'search and replace\*(R' manner, returns the final data.
+.Sp
+.Vb 1
+\&        my @data = $o_reg->replace($search, $replace);
+.Ve
+.Vb 3
+\&        my @data = $o_reg->replace(
+\&                q|\e<a href=(['"])([^$1]+)?$1| => q|'my.sales.com'|,
+\&        );
+.Ve
+This is \fBsimple\fR, in that you can do almost anything in the \fBsearch\fR side, 
+but the \fBreplace\fR side is a bit more restricted, as we can't effect the 
+replacement modifiers on the fly.  
+.Sp
+If you really need this, perhaps \fB(?{})\fR can help?
+Returns File::stat object for the file.
+.Sp
+.Vb 1
+\&        print 'File size: '.$o_reg->stat->size;
+.Ve
+sub xfstat {
+	my \f(CW$self\fR = shift;
+	my \f(CW$file\fR = shift || \*(L'_\*(R';
+.Sp
+.Vb 1
+\&        # print "file($file) stat: ".Dumper(stat($file));
+.Ve
+.Vb 2
+\&        # return stat($file);
+\&}
+.Ve
+.Ip "dummy" 4
+Do something ...?
+.Sp
+.Vb 1
+\&        my @res = $o_reg->dummy(@args);
+.Ve
+.PP
+# ================================================================
+.SH "VARIABLES"
+Various variables may be set affecting the behaviour of the module.
+.Ip "$File::Content::\s-1DEBUG\s0" 4
+Set to 0 (default) or 1 for debugging information to be printed on \s-1STDOUT\s0.
+.Sp
+.Vb 1
+\&        $File::Content::DEBUG = 1;
+.Ve
+.Ip "$File::Content::\s-1FATAL\s0" 4
+Will die if there is any failure in accessing the file, or reading the data.
+.Sp
+Default = 0 (don't die \- just warn);
+.Sp
+.Vb 1
+\&        $File::Content::FATAL = 1;      # die
+.Ve
+.Ip "$File::Content::\s-1REFERENCE\s0" 4
+Will return a reference, not a list, useful with large files.
+.Sp
+Default is 0, ie; methods normally returns a list.
+.Sp
+Hopefully future versions of perl may return a reference if you request one, 
+but as this is not supported generically yet, nor do we, so we require the 
+variable to be set.  There may be an argument to make this a reference by 
+default, feedback will decide.
+.Sp
+.Vb 1
+\&        $File::Content::REFERENCE = 1;
+.Ve
+.Vb 1
+\&        my $a_ref = $o_reg->search('.*');
+.Ve
+.Vb 1
+\&        print "The log: \en".@{ $a_ref };
+.Ve
+.Ip "$File::Content::\s-1STRING\s0" 4
+Where regex's are used, default behaviour is to treate the entire file as a 
+single scalar string, so that, for example, \fB/cgms\fR matches are effective.
+.Sp
+Unset if you don't want this behaviour.
+.Sp
+.Vb 1
+\&        $File::Content::STRING = 0; # per line
+.Ve
+.Ip "$File::Content::\s-1PERMISSIONS\s0" 4
+File will be opened read-write (\fBinsert()\fR compatible) unless this variable is set explicitly or given via \fBnew()\fR.  In either case, unless it is one of our \fBkeys\fR declared below, it will be passed on to \fBFileHandle\fR and otherwise not modified.
+.Sp
+Read-only permissions may be explicitly set using one of the following \fBkeys\fR:
+.Sp
+.Vb 1
+\&        $File::Content::PERMISSIONS = 'ro'; # or readonly or <
+.Ve
+Or, equivalently, for read-write (default):
+.Sp
+.Vb 1
+\&        rw readwrite +< 
+.Ve
+.Ip "$File::Content::\s-1REVERSE\s0" 4
+Start from the end of the file.
+.Sp
+The default is 0 ie; start at the start of the file...
+.Sp
+.Vb 1
+\&        $File::Content::REVERSE = 1; # tac
+.Ve
+.PP
+# ================================================================
+.SH "PRIVATE"
+Private methods not expected to be called outside this class, and completely unsupported.  
+.Sp
+Expected to metamorphose regularly \- do not call these directly \- you have been warned!
+.Ip "_var" 4
+Variable get/set method
+.Sp
+.Vb 1
+\&        my $get = $o_reg->_var($key);           # get
+.Ve
+.Vb 1
+\&        my $set = $o_reg->_var($key, $val);     # set   
+.Ve
+.Ip "_debug" 4
+Print given args on \s-1STDOUT\s0
+.Sp
+.Vb 1
+\&        $o_reg->_debug($msg) if $File::Content::DEBUG;
+.Ve
+.Ip "_vars" 4
+Return dumped env and object \fBkey\fR and \fBvalues\fR
+.Sp
+.Vb 1
+\&        print $o_reg->_vars;
+.Ve
+.Ip "_err " 4
+Get/set error handling methods/objects
+.Sp
+.Vb 1
+\&        my $c_sub = $o_reg->_err('insert'); # or default
+.Ve
+.Ip "_error" 4
+By default prints error to \s-1STDERR\s0, will \fBcroak\fR if \fBFile::Content::\s-1FATAL\s0\fR set.
+.Sp
+See the \fI\s-1EXAMPLES\s0\fR manpage for info on how to pass your own error handlers in.
+.Ip "_mapfile" 4
+Maps file
+.Sp
+.Vb 1
+\&        my $file = $o_reg->_mapfile($filename);
+.Ve
+.Ip "_mapperms" 4
+Maps given permissions to appropriate form for \fBFileHandle\fR
+.Sp
+.Vb 1
+\&        my $perms = $o_reg->_mapperms('+<');    
+.Ve
+.Ip "_maperrs" 4
+Map error handlers, if given
+.Sp
+.Vb 1
+\&        my $h_errs = $o_reg->_maperrs(\e%error_handlers);
+.Ve
+.Ip "_enter" 4
+Mark the entering of a special section, or state
+.Sp
+.Vb 1
+\&        my $entered = $o_reg->enter('search');
+.Ve
+.Ip "_leave" 4
+Mark the leaving of a special section, or state
+.Sp
+.Vb 1
+\&        my $left = $o_reg->_leave('search');
+.Ve
+.Ip "_fh" 4
+Get and set \fBFileHandle\fR.
+.Sp
+Returns undef otherwise.
+.Sp
+.Vb 1
+\&        my $FH = $o_reg->_fh($FH); 
+.Ve
+.PP
+# ================================================================
+.SH "UTILITY"
+The following utility methods return integer values
+.Sp
+.Vb 1
+\&        1 = success
+.Ve
+.Vb 1
+\&        0 = failure
+.Ve
+.Ip "_init" 4
+Setup object, open a file, with permissions.
+.Sp
+.Vb 1
+\&        my $i_ok = $o_file->_init($file, $perm, $h_errs);
+.Ve
+.Ip "_check_access" 4
+Checks the args for existence and appropriate permissions etc.
+.Sp
+.Vb 1
+\&        my $i_isok = $o_reg->_check_access($filename, $permissions);
+.Ve
+.Ip "_open" 4
+Open the file
+.Sp
+.Vb 1
+\&        my $i_ok = $o_reg->_open;
+.Ve
+.Ip "_lock" 4
+Lock the file
+.Sp
+.Vb 1
+\&        my $i_ok = $o_reg->_lock;
+.Ve
+.Ip "_unlock" 4
+Unlock the file
+.Sp
+.Vb 1
+\&        my $i_ok = $o_reg->unlock;
+.Ve
+.Ip "_close" 4
+Close the filehandle
+.Sp
+.Vb 1
+\&        my $i_ok = $o_reg->_close;
+.Ve
+.SH "SPECIAL"
+.Ip "\s-1AUTOLOAD\s0" 4
+Any unrecognised function will be passed to the FileHandle object for final 
+consideration, behaviour is then effectively \*(L'o_reg \s-1ISA\s0 FileHandle\*(R'.
+.Sp
+.Vb 1
+\&        $o_reg->truncate;
+.Ve
+.SH "EXAMPLES"
+Typical construction examples:
+.Sp
+.Vb 1
+\&        my $o_rw = File::Content->new($filename, 'rw');
+.Ve
+.Vb 1
+\&        my $o_ro = File::Content->new($filename, 'ro');
+.Ve
+Failure is indicated by an error routine being called, this will print 
+out any error to \s-1STDERR\s0, unless warnings are declared fatal, in which 
+case we croak.  You can register your own error handlers for any method 
+mentioned in the the \fI\s-1METHOD\s0\fR manpage section of this document, in addition is a 
+special \fBinit\fR call for initial file opening and general setting up.
+.Sp
+Create a read-write object with a callback for all errors:
+.Sp
+.Vb 3
+\&        my $o_rw = File::Content->new($filename, 'ro', {
+\&                'error'         => \e&myerror,
+\&        });
+.Ve
+Create a read-only object with a separate object handler for each error type:
+.Sp
+.Vb 7
+\&        my $o_rw = File::Content->new($filename, 'rw', {
+\&                'error'         => $o_generic->error_handler,
+\&                'insert'        => $o_handler->insert_error,
+\&                'open'          => $o_open_handler,
+\&                'read'          => \e&carp,
+\&                'write'         => \e&write_error,
+\&        });
+.Ve
+From the command line:
+.Sp
+\fBperl \-MFile::Content \-e \*(L"File-\fRContent->\fInew\fR\|(\*(R'./test.txt')\->\fIinsert\fR\|('123\*(R', \*(L'456')>\*(R";
+.Sp
+If you still have problems, mail me the output of 
+		
+	make test \s-1TEST_VERBOSE\s0=1
+.SH "AUTHOR"
+Richard Foley <C> richard.foley@rfi.net 2001
+.PP
+For those that are interested, the docs and tests were (mostly) written before the code.
+
+.rn }` ''
+.IX Title "Content 3"
+.IX Name "File::Content - Regular expression interface to files"
+
+.IX Header "NAME"
+
+.IX Header "DESCRIPTION"
+
+.IX Header "SYNOPSIS"
+
+.IX Header "EXPLANATION"
+
+.IX Header "METHODS"
+
+.IX Item "new"
+
+.IX Item "do"
+
+.IX Item "read"
+
+.IX Item "write"
+
+.IX Item "prepend"
+
+.IX Item "insert"
+
+.IX Item "append"
+
+.IX Item "search"
+
+.IX Item "replace "
+
+.IX Item "dummy"
+
+.IX Header "VARIABLES"
+
+.IX Item "$File::Content::\s-1DEBUG\s0"
+
+.IX Item "$File::Content::\s-1FATAL\s0"
+
+.IX Item "$File::Content::\s-1REFERENCE\s0"
+
+.IX Item "$File::Content::\s-1STRING\s0"
+
+.IX Item "$File::Content::\s-1PERMISSIONS\s0"
+
+.IX Item "$File::Content::\s-1REVERSE\s0"
+
+.IX Header "PRIVATE"
+
+.IX Item "_var"
+
+.IX Item "_debug"
+
+.IX Item "_vars"
+
+.IX Item "_err "
+
+.IX Item "_error"
+
+.IX Item "_mapfile"
+
+.IX Item "_mapperms"
+
+.IX Item "_maperrs"
+
+.IX Item "_enter"
+
+.IX Item "_leave"
+
+.IX Item "_fh"
+
+.IX Header "UTILITY"
+
+.IX Item "_init"
+
+.IX Item "_check_access"
+
+.IX Item "_open"
+
+.IX Item "_lock"
+
+.IX Item "_unlock"
+
+.IX Item "_close"
+
+.IX Header "SPECIAL"
+
+.IX Item "\s-1AUTOLOAD\s0"
+
+.IX Header "EXAMPLES"
+
+.IX Header "AUTHOR"
+
